@@ -1,0 +1,26 @@
+{
+  "cache_version": "sha256:f9fa9741f02dcd0ed510214260b6c92f669786ae41a22313bcbe32d33891ab23",
+  "build_config": {
+    "version": "1",
+    "hash_algorithm": "sha256"
+  },
+  "created_at": "1970-01-01T00:00:00Z",
+  "document_count": 3,
+  "documents": [
+    {
+      "id": "deployment.md",
+      "version": "sha256:19835fc46fd47b1e6bc19778f76396e900c217191ff1bef2cb4e138308da1a72",
+      "file": "documents/19835fc46fd4.json"
+    },
+    {
+      "id": "empty.md",
+      "version": "sha256:e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "file": "documents/e3b0c44298fc.json"
+    },
+    {
+      "id": "security.md",
+      "version": "sha256:c070a5c47a9fbba3e807b972cc753ea192b0dd6e6af86d2c3e2841b7bc0fd644",
+      "file": "documents/c070a5c47a9f.json"
+    }
+  ]
+}

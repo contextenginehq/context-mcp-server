@@ -1,0 +1,1 @@
+{"jsonrpc":"2.0","id":1,"result":{"content":[{"text":"{\"error\":{\"code\":\"io_error\",\"message\":\"I/O error occurred\"}}\n","type":"text"}],"isError":true}}
