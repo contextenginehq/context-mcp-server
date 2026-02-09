@@ -3,6 +3,21 @@ name = "mcp-context-server"
 version = "0.1.0"
 edition = "2021"
 license = "Apache-2.0"
+description = "MCP server exposing context tools over JSON-RPC 2.0 stdio transport"
+repository = "https://github.com/contextenginehq/context-mcp-server"
+homepage = "https://github.com/contextenginehq/context-engine"
+documentation = "https://docs.rs/mcp-context-server"
+readme = "README.md"
+keywords = ["mcp", "context", "json-rpc", "llm", "ai-agents"]
+categories = ["command-line-utilities", "network-programming"]
+
+include = [
+  "src/**",
+  "Cargo.toml",
+  "README.md",
+  "LICENSE",
+  "NOTICE",
+]
 
 [lib]
 name = "mcp_context_server"
@@ -13,7 +28,7 @@ name = "mcp-context-server"
 path = "src/main.rs"
 
 [dependencies]
-context-core = { path = "../context-core" }
+context-core = { version = "0.1.0", path = "../context-core" }
 serde = { version = "1.0", features = ["derive"] }
 serde_json = "1.0"
 thiserror = "1.0"

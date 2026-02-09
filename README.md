@@ -1,5 +1,9 @@
 # mcp-context-server
 
+[![Crates.io](https://img.shields.io/crates/v/mcp-context-server.svg)](https://crates.io/crates/mcp-context-server)
+[![Docs.rs](https://docs.rs/mcp-context-server/badge.svg)](https://docs.rs/mcp-context-server)
+[![License](https://img.shields.io/badge/license-Apache%202.0-blue.svg)](LICENSE)
+
 MCP server for the Context platform.
 
 `mcp-context-server` exposes context resolution to AI agents via the [Model Context Protocol](https://modelcontextprotocol.io/) over stdio (JSON-RPC 2.0, newline-delimited). It is the primary integration surface for agents.
