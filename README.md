@@ -4,9 +4,30 @@
 [![Docs.rs](https://docs.rs/mcp-context-server/badge.svg)](https://docs.rs/mcp-context-server)
 [![License](https://img.shields.io/badge/license-Apache%202.0-blue.svg)](LICENSE)
 
-MCP server for the Context platform.
+> `mcp-context-server` exposes a deterministic context resolution engine to AI agents via the Model Context Protocol (MCP). It enables agents to retrieve reproducible, auditably-selected context from local documentation without network dependencies.
 
-`mcp-context-server` exposes context resolution to AI agents via the [Model Context Protocol](https://modelcontextprotocol.io/) over stdio (JSON-RPC 2.0, newline-delimited). It is the primary integration surface for agents.
+`mcp-context-server` is the primary integration surface for agents on the Context platform.
+
+## Architecture
+
+The MCP server is a thin protocol adapter over the deterministic context engine.
+
+Agent → MCP client → mcp-context-server → context-core → context cache
+
+- `context-core` performs deterministic selection
+- The server provides a stable JSON-RPC interface
+- No network calls or external services are required
+- Designed for on-premise and air-gapped environments
+
+## Creating caches
+
+Caches are created using the `context` CLI:
+
+```bash
+context build --sources ./docs --cache ./caches/my-cache
+```
+
+See the `context-cli` repository for details.
 
 ## Tools
 
@@ -56,6 +77,24 @@ For Claude Desktop, add to your MCP config:
 - Protocol version: `2024-11-05`
 - All responses are deterministic
 - Error codes: `cache_missing`, `cache_invalid`, `invalid_query`, `invalid_budget`, `io_error`, `internal_error`
+
+## Determinism Guarantees
+
+For identical inputs (cache contents, query, and budget), the server guarantees:
+
+- Byte-identical responses
+- Stable document ordering
+- Stable floating-point representations
+- No hidden state across requests
+
+Determinism is enforced by a compatibility test harness across versions and platforms.
+
+## Failure Semantics
+
+- Tool errors return structured MCP error responses
+- The server never panics for user-input errors
+- IO failures are reported as `io_error`
+- Invalid caches are reported as `cache_invalid`
 
 ## Build
 

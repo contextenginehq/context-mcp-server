@@ -2,8 +2,9 @@
 name = "mcp-context-server"
 version = "0.1.0"
 edition = "2021"
+rust-version = "1.74"
 license = "Apache-2.0"
-description = "MCP server exposing context tools over JSON-RPC 2.0 stdio transport"
+description = "Embeddable MCP server and standalone binary exposing deterministic context tools over JSON-RPC 2.0 stdio"
 repository = "https://github.com/contextenginehq/context-mcp-server"
 homepage = "https://github.com/contextenginehq/context-engine"
 documentation = "https://docs.rs/mcp-context-server"
@@ -36,6 +37,6 @@ tokio = { version = "1", features = ["rt", "macros", "io-util", "io-std", "time"
 jsonschema = "0.41.0"
 
 [dev-dependencies]
-chrono = "0.4"
+chrono = { version = "0.4", default-features = false, features = ["std"] }
 sha2 = "0.10"
 tempfile = "3"
