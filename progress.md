@@ -79,6 +79,13 @@ Total                       20 passed
 - [ ] **Empty/whitespace query** — Confirm empty queries return all documents at score 0.0
 - [ ] **`io_error` vs `cache_invalid`** — Test that permission-denied returns `io_error`, missing manifest returns `cache_invalid`
 
+### P2 — Enterprise Ingestion Support (see `context-specs/plans/enterprise_ingest_plan.md` Phase 4)
+
+- [ ] **Connector metadata passthrough** — Verify `context.resolve` includes connector metadata (`source_type`, `source_id`, `connector_version`) in `SelectedDocument` output. No code change expected — metadata flows through existing pipeline.
+- [ ] **`inspect_cache` source distribution** — Enhance `context.inspect_cache` to report `source_type` distribution (e.g., `{"confluence": 35, "filesystem": 12}`) from document metadata.
+- [ ] **Golden tests for enterprise caches** — Add golden test fixtures with connector metadata, verify MCP responses include provenance fields.
+- [ ] **Documentation** — Update README with enterprise ingestion workflow example (Confluence → cache → agent query).
+
 ### P3 — Nice to have
 
 - [ ] **`notifications/cancelled` handling** — Accept and silently drop
